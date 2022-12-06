@@ -3,11 +3,14 @@
 //Functions Declaration
 void printArr(int arr[], int size);
 void bubbleSort(int arr[], int size);
+void selectionSort(int arr[], int size);
+
 
 int main(){
     int arr[] = {4,3,1,2,5};
     int size = sizeof(arr)/sizeof(arr[0]); // Size of array
-    bubbleSort(arr,size);
+    // bubbleSort(arr,size);
+    selectionSort(arr,size);
     printArr(arr,size);
 }
 // Functions Definitions
@@ -27,5 +30,20 @@ void bubbleSort(int arr[], int size){
                 arr[j+1] = temp;
             }
         }
+    }
+}
+// Selection Sort
+void selectionSort(int arr[], int size){
+    for(int i=0; i<size-1; i++){
+        int minPos = i;
+        for(int j=i+1; j<size-1; j++){
+            if(arr[minPos] > arr[j]){
+                minPos = j;
+            }
+        }
+        // Swapping
+        int temp = arr[minPos];
+        arr[minPos] = arr[i];
+        arr[i] = temp;
     }
 }
